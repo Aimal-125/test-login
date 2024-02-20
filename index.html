@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Fb login</title>
+	<title>Facebook Login JavaScript Example</title>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-	<script src="./ex.js" async defer></script>
+	<script src="./ex.js" defer></script>
 </head>
 <body>
-	<div class="fb-login-button" data-size="medium" data-button-text="Continue with Facebook" data-layout="button_count" data-scope="public_profile,email"></div>
+	<fb:login-button scope="public_profile,email" onlogin="checkLoginState();"></fb:login-button>
+	<div id="status"></div>
 </body>
 </html>
