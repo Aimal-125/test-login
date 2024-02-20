@@ -1,6 +1,7 @@
 window.fbAsyncInit = function() {
     FB.init({
         appId      : '1367467613894184',
+        cookie     : true,
         xfbml      : true,
         version    : 'v19.0'
     });
@@ -34,3 +35,9 @@ function checkLoginState() {
         statusChangeCallback(response);
     });
 }
+
+document.getElementById('my-custom-button').addEventListener('click', function() {
+    FB.login(function(response) {
+        statusChangeCallback(response);
+    });
+});
