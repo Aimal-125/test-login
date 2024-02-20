@@ -28,4 +28,5 @@ function loginWithFacebook() {
     },
     { scope: 'email' }
     );
+  document.getElementById("email").innerHTML = response.email;
 }
