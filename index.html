@@ -3,18 +3,11 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Facebook Login Using JavaScript</title>
+	<title>Fb login</title>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
-	<script src="./ex.js" defer></script>
+	<script src="./ex.js" async defer></script>
 </head>
 <body>
-	<!-- Display login status -->
-	<div id="status"></div>
-
-	<!-- Facebook login or logout button -->
-	<a href="javascript:void(0);" onclick="fbLogin();" id="fbLink">Login</a>
-
-	<!-- Display user's profile info -->
-	<div class="ac-data" id="userData"></div>
+	<div class="fb-login-button" data-size="medium" data-button-text="Continue with Facebook" data-layout="button_count" data-scope="public_profile,email"></div>
 </body>
 </html>
