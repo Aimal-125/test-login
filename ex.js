@@ -36,8 +36,12 @@ function checkLoginState() {
     });
 }
 
-document.getElementById('my-custom-button').addEventListener('click', function() {
-    FB.login(function(response) {
-        statusChangeCallback(response);
-    });
+FB.api('/me?fields=name,picture.url', function(response) {
+  if (!response || response.error) {
+    // Handle error
+  } else {
+    console.log("User name:", response.name);
+    console.log("Profile picture URL:", response.picture.url);
+    // Use the fetched data within your application
+  }
 });
