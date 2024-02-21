@@ -4,10 +4,13 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Fb login</title>
-	<script src="./ex.js" defer async></script>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+	<script src="./ex.js" defer></script>
 </head>
 <body>
 	<button onclick="loginWithFacebook()">Login with Facebook</button>
+	<div id="name"></div>
 	<div id="email"></div>
+	<div id="pic"></div>
 </body>
 </html>

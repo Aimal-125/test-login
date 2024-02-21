@@ -1,32 +1,22 @@
-(function(d, s, id) {
-  var js,
-  fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s);
-  js.id = id;
-  js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v19.0&appId=1367467613894184&autoLogAppEvents=1";
-  fjs.parentNode.insertBefore(js, fjs);
-})(document, "script", "facebook-jssdk");
-
-window.fbAsyncInit = function() {
+window.fbAsyncInit = function() { 
   FB.init({
-    appId: '1367467613894184',
-    cookie: true,
+    appId: '1367467613894184', 
     xfbml: true,
     version: 'v19.0'
   });
 };
 
-// Custom login button functionality
 function loginWithFacebook() {
-  FB.login(
-    function(response) {
-      if (response.status === 'connected') {
-          // User has logged in successfully
-        console.log('Login successful');
-      }
-    },
-    { scope: 'email' }
-    );
-  document.getElementById("email").innerHTML = response.email;
+  FB.login(function(response) {
+    if (response.authResponse) {
+     console.log('Welcome!  Fetching your information.... ');
+     FB.api('/me', {fields: "name, email, picture"}, function(response) {
+      document.querySelector("#name").innerHTML = "Name: " + response.name;
+      document.querySelector("#email").innerHTML = "Email: " + response.email;
+      document.querySelector("#pic").innerHTML = '<img src="response.picture.data.url" alt="aimal" />';
+    });
+   } else {
+     console.log('User cancelled login or did not fully authorize.');
+   }
+ }, {scope: "public_profile, email"});
 }
